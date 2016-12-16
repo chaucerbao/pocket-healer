@@ -1,0 +1,15 @@
+.recruit {
+  display: flex;
+
+  input {
+    display: none;
+
+    &:checked + .teammate {
+      background: blue;
+    }
+  }
+}
+
+.teammate {
+  border: solid black 1px;
+}

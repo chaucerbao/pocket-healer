@@ -1,0 +1,38 @@
+@import "settings.css";
+
+.tag {
+  font-size: 0.75em;
+  border: solid black 1px;
+  border-top: none;
+  background: $light-grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.name {
+  position: relative;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.current {
+  background: $blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  /* width: 0%; */
+
+  /* transition-property: width; */
+}
+
+.reset {
+  .current {
+    /* width: 100%; */
+    /* transition-property: none; */
+  }
+}

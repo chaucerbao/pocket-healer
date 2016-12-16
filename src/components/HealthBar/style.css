@@ -1,0 +1,29 @@
+@import "settings.css";
+
+.tag {
+  border: solid black 1px;
+  background: $light-grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.name,
+.percentage {
+  position: relative;
+  z-index: 2;
+}
+
+.current {
+  background: $red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+}
+
+.isDead {
+}
+

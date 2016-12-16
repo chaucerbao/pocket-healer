@@ -1,0 +1,83 @@
+{
+  "name": "pocket-healer",
+  "version": "0.0.1",
+  "description": "A boring game where you heal your team as they travel to distant lands, hunt for exotic treasures, and battle powerful monsters...none of which you get to partake, except for the healing.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm run init && npm run build:dll && node_modules/.bin/webpack-dev-server -d --inline --hot",
+    "build": "npm run init && NODE_ENV=production npm run build:dll -- -p && node_modules/.bin/webpack -p --optimize-occurence-order --optimize-dedupe && gzip -k9 public/assets/*",
+    "build:dll": "node_modules/.bin/webpack --config=src/dll/webpack.config.js --optimize-occurence-order --optimize-dedupe",
+    "clean": "rm -rf public/",
+    "init": "npm run clean && mkdir -p public/ && cp src/index.html public/",
+    "lint": "node_modules/.bin/snazzy ; node_modules/.bin/stylelint 'src/**/*.css' || true",
+    "beautify": "node_modules/.bin/standard --fix ; node_modules/.bin/stylefmt --recursive 'src/**/*.css'",
+    "test": "NODE_ENV=test node_modules/.bin/mocha-webpack --webpack-config webpack.config.js --recursive --glob '*.test.js' src/",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaucerbao/pocket-healer.git"
+  },
+  "author": "Alvin Chan <no@email.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaucerbao/pocket-healer/issues"
+  },
+  "homepage": "https://github.com/chaucerbao/pocket-healer#readme",
+  "babel": {
+    "presets": [
+      "es2015",
+      "babel-preset-stage-2",
+      "react"
+    ],
+    "plugins": [
+      "babel-plugin-transform-decorators-legacy"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "devDependencies": {
+    "autoprefixer": "*",
+    "babel-core": "*",
+    "babel-eslint": "*",
+    "babel-loader": "*",
+    "babel-plugin-transform-decorators-legacy": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-2": "*",
+    "css-loader": "*",
+    "enzyme": "*",
+    "extract-text-webpack-plugin": "*",
+    "mobx": "*",
+    "mobx-react": "*",
+    "mocha": "*",
+    "mocha-webpack": "*",
+    "postcss-import": "*",
+    "postcss-loader": "*",
+    "postcss-mixins": "*",
+    "postcss-nested": "*",
+    "postcss-simple-vars": "*",
+    "react-addons-test-utils": "*",
+    "snazzy": "*",
+    "standard": "*",
+    "standard-loader": "*",
+    "style-loader": "*",
+    "stylefmt": "*",
+    "stylelint": "*",
+    "stylelint-config-standard": "*",
+    "stylelint-webpack-plugin": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*",
+    "webpack-node-externals": "*"
+  },
+  "dependencies": {
+    "normalize.css": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router": "*"
+  }
+}
